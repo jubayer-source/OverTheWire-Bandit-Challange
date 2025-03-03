@@ -1,0 +1,87 @@
+bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Here, We solve OverTheWire 
+
+
+////////////////
+┌──(jubayer㉿kali)-[~]
+└─$ ssh -v bandit7@bandit.las.overthewire.org -p 2220
+
+debug1: Next authentication method: password
+
+bandit7@bandit:~$ ls -alps
+bandit7@bandit:~$ cat data.txt
+bandit7@bandit:~$ strings data.txt | grep "millionth"
+millionth	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+bandit7@bandit:~$ exit
+logout
+
+
+//////////// Bandit Level 8 → Level 9
+┌──(jubayer㉿kali)-[~]
+└─$ ssh -v bandit8@bandit.labs.overthewire.org -p 2220
+
+debug1: Next authentication method: password
+bandit8@bandit.labs.overthewire.org's password:
+
+bandit8@bandit:~$ cat data.txt
+bandit8@bandit:~$ sort data.txt
+bandit8@bandit:~$ sort data.txt | uniq -c
+
+we got password for the next level:
+      1 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+bandit8@bandit:~$ exit
+
+///////////////////Bandit Level 9 → Level 10
+┌──(jubayer㉿kali)-[~]
+└─$ ssh -v bandit9@bandit.labs.overthewire.org -p 2220 
+
+bandit9@bandit:~$ strings data.txt | grep "="
+
+D9========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+bandit9@bandit:~$ exit
+logout
+
+/////////////// Bandit Level 10 → Level 11
+┌──(jubayer㉿kali)-[~]
+└─$ ssh -v bandit10@bandit.labs.overthewire.org -p 2220
+
+debug1: Next authentication method: password
+bandit10@bandit.labs.overthewire.org's password: 
+
+bandit10@bandit:~$ cat data.txt
+VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg==
+
+bandit10@bandit:~$ base64 -d data.txt
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+bandit10@bandit:~$ exit
+logout
+
+
+//////////////////Bandit Level 11 → Level 12
+┌──(jubayer㉿kali)-[~]
+└─$ ssh -v bandit11@bandit.labs.overthewire.org -p 2220
+
+debug1: Next authentication method: password
+bandit11@bandit.labs.overthewire.org's password: 
+
+bandit11@bandit:~$ cat data.txt
+Gur cnffjbeq vf 7k16JArUVv5LxVuJfsSVdbbtaHGlw9D4
+
+NOW DeCode this using Cyberchef and ROT13
+https://gchq.github.io/CyberChef/
+
+you will Find : The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+
+bandit11@bandit:~$ exit
+logout
+
+
+
+
+
+
+
